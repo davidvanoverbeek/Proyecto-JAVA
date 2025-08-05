@@ -69,6 +69,7 @@ public class main {
                 case 3 -> {
                     System.out.print("DNI del cliente que quiere modificar: ");
                     String dni = scanner.nextLine();
+
                     for (Cliente cliente : clientes) {
                         if (cliente.getDni().equalsIgnoreCase(dni)) {
                             System.out.print("Nuevo nombre: ");
@@ -138,6 +139,7 @@ public class main {
     public static void realizarVenta() {
         System.out.print("DNI del cliente: ");
         String dni = scanner.nextLine();
+
         Cliente cliente = null;
         for (Cliente c : clientes) {
             if (c.getDni().equalsIgnoreCase(dni)) {
@@ -157,21 +159,25 @@ public class main {
         String seguir;
         do {
             System.out.println("Catálogo de productos:");
+
             for (int i = 0; i < catalogo.size(); i++) {
                 System.out.println(i + ". " + catalogo.get(i));
             }
             System.out.print("Selecciona número del producto: ");
+
             int i = Integer.parseInt(scanner.nextLine());
             if (i >= 0 && i < catalogo.size()) {
                 venta.agregarProducto(catalogo.get(i));
                 System.out.println("Producto añadido.");
             }
             System.out.print("¿Añadir otro producto? (SI/NO): ");
+
             seguir = scanner.nextLine().toUpperCase();
         } while (seguir.equalsIgnoreCase("si"));
 
         ventas.add(venta);
         System.out.println("Venta realizada correctamente.");
+
     }
 
     // Proceso de mostrar información
@@ -182,7 +188,9 @@ public class main {
             System.out.println("\n-- Mostrar Ventas --");
             System.out.println("1. Todas las ventas");
             System.out.println("2. Ventas por cliente");
-            System.out.println("3. Volver");
+            System.out.println("3. Total gastado por cliente");
+            System.out.println("4. Volver");
+
             System.out.print("Elige una opción: ");
             option = Integer.parseInt(scanner.nextLine());
 
@@ -197,7 +205,18 @@ public class main {
                         }
                     }
                 }
+                case 3 -> {
+                    System.out.print("DNI del cliente: ");
+                    String dni = scanner.nextLine();
+                    double totalGastado = 0;
+                    for (Venta v : ventas) {
+                        if (v.getCliente().getDni().equalsIgnoreCase(dni)) {
+                            totalGastado += v.calcularTotal();
+                        }
+                    }
+                    System.out.println("Total gastado por el cliente: " + totalGastado + " €");
+                }
             }
-        } while (option != 3);
+        } while (option != 4);
     }
 }

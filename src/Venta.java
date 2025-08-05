@@ -22,7 +22,7 @@ public class Venta {
         lineasDeVenta.add(producto);
     }
 
-    public double calcuclarTotal() {
+    public double calcularTotal() {
         double total = 0;
         for (Producto producto : lineasDeVenta) {
             total += producto.getPrecio();
@@ -43,7 +43,7 @@ public class Venta {
         return "Venta {" +
                 "cliente: " + cliente.getNombre() +
                 ", fecha: " + fecha + '\'' +
-                ", total: " + calcuclarTotal() +
+                ", total: " + calcularTotal() +
                 ", producto: " + lineasDeVenta +
                 '}';
     }

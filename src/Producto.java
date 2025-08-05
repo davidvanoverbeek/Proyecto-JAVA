@@ -6,9 +6,10 @@ public class Producto {
     private String tamaño;
     private Double precio;
 
+
     // Constructor
 
-    public Producto(String articulo, String tamaño, Double precio) {
+    public Producto(String articulo, String tamaño, double precio) {
         this.articulo = articulo;
         this.tamaño = tamaño;
         this.precio = precio;
