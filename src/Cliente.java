@@ -1,9 +1,13 @@
 public class Cliente {
 
+    // Cliente
+
     private String nombre;
     private String dni;
     private String telefono;
     private String email;
+
+    // Constructor
 
     public Cliente(String nombre, String dni, String telefono, String email) {
         this.nombre = nombre;
@@ -11,6 +15,8 @@ public class Cliente {
         this.telefono = telefono;
         this.email = email;
     }
+
+    // Getters
 
     public String getNombre() {
         return nombre;
@@ -28,6 +34,8 @@ public class Cliente {
         return email;
     }
 
+    // Setters
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -39,6 +47,8 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    // Sobrescritura
 
     @Override
     public String toString() {

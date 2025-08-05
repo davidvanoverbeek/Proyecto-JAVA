@@ -7,6 +7,8 @@ public class main {
     static ArrayList<Venta> ventas = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
+    // Menú principal
+
     public static void main(String[] args) {
         int opcion;
         do {
@@ -29,6 +31,8 @@ public class main {
             }
         }while (opcion != 5);
     }
+
+    // Menú para clientes
 
     public static void menuClientes() {
         int option;
@@ -93,6 +97,8 @@ public class main {
         }while (option != 6);
     }
 
+    // Menu para productos
+
     public static void menuProductos() {
         int option;
         do {
@@ -126,6 +132,8 @@ public class main {
             }
         } while (option != 4);
     }
+
+    //Proceso de venta
 
     public static void realizarVenta() {
         System.out.print("DNI del cliente: ");
@@ -165,6 +173,8 @@ public class main {
         ventas.add(venta);
         System.out.println("Venta realizada correctamente.");
     }
+
+    // Proceso de mostrar información
 
     public static void mostrarVentas() {
         int option;
