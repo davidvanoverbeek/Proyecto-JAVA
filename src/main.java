@@ -119,7 +119,9 @@ public class main {
                     String tamaño = scanner.nextLine();
                     System.out.print("Precio: ");
                     double precio = Double.parseDouble(scanner.nextLine());
-                    catalogo.add(new Producto(articulo, tamaño, precio));
+                    System.out.print("Stock disponible: ");
+                    int stock = Integer.parseInt(scanner.nextLine());
+                    catalogo.add(new Producto(articulo, tamaño, precio, stock));
                     System.out.println("Producto añadido al catálogo.");
                 }
                 case 2 -> catalogo.forEach(System.out::println);
@@ -166,6 +168,14 @@ public class main {
             System.out.print("Selecciona número del producto: ");
 
             int i = Integer.parseInt(scanner.nextLine());
+            if (catalogo.get(i).getStock() > 0) {
+                venta.agregarProducto(catalogo.get(i));
+                catalogo.get(i).setStock(catalogo.get(i).getStock() - 1);
+                System.out.println("Stock restante: " + catalogo.get(i).getStock());
+            } else {
+                System.out.println("No hay stock disponible de ese producto.");
+            }
+
             if (i >= 0 && i < catalogo.size()) {
                 venta.agregarProducto(catalogo.get(i));
                 System.out.println("Producto añadido.");
