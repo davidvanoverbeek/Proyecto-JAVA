@@ -47,7 +47,8 @@ public class Producto {
         return "Producto {" +
                 "articulo: " + articulo + '\'' +
                 ", tamaño: " + tamaño + '\'' +
-                ", precio: " + precio +
+                ", precio: " + precio + '\'' +
+                ", stock: " + stock +
                 '}';
     }
 }

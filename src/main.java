@@ -43,7 +43,8 @@ public class main {
             System.out.println("3. Modificación");
             System.out.println("4. Buscar por DNI");
             System.out.println("5. Listado");
-            System.out.println("6. Volver");
+            System.out.println("6. Ordenar por nombre");
+            System.out.println("7. Volver");
             System.out.print("Elige una opción: ");
             option = Integer.parseInt(scanner.nextLine());
 
@@ -94,8 +95,11 @@ public class main {
                     }
                 }
                 case 5 -> clientes.forEach(System.out::println);
+                case 6 -> clientes.stream()
+                        .sorted((a, b) -> a.getNombre().compareToIgnoreCase(b.getNombre()))
+                        .forEach(System.out::println);
             }
-        }while (option != 6);
+        }while (option != 7);
     }
 
     // Menu para productos
@@ -106,8 +110,9 @@ public class main {
             System.out.println("\n-- Gestión de Productos --");
             System.out.println("1. Alta");
             System.out.println("2. Listado del catálogo");
-            System.out.println("3. Buscar por articulo");
-            System.out.println("4. Volver");
+            System.out.println("3. Ordenar por precio");
+            System.out.println("4. Buscar por articulo");
+            System.out.println("5. Volver");
             System.out.print("Elige una opción: ");
             option = Integer.parseInt(scanner.nextLine());
 
@@ -125,7 +130,10 @@ public class main {
                     System.out.println("Producto añadido al catálogo.");
                 }
                 case 2 -> catalogo.forEach(System.out::println);
-                case 3 -> {
+                case 3-> catalogo.stream()
+                        .sorted((a, b) -> Double.compare(a.getPrecio(), b.getPrecio()))
+                        .forEach(System.out::println);
+                case 4 -> {
                     System.out.print("Articulo que quiere buscar: ");
                     String articulo = scanner.nextLine();
                     catalogo.stream()
@@ -133,7 +141,7 @@ public class main {
                             .forEach(System.out::println);
                 }
             }
-        } while (option != 4);
+        } while (option != 5);
     }
 
     //Proceso de venta
